@@ -16,5 +16,6 @@ namespace SteamApplication.Entities
         public Int16? Rate { get; set; }
 
         public Category Category { get; set; }
+        public ICollection<GameDev> GameDev { get; set; }
     }
 }

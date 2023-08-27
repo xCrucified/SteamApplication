@@ -13,9 +13,12 @@ namespace SteamApplication.Entities
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public string Password { get; set; }
+        public DateTime Date { get; set; } //Date of registration
         public Boolean IsVerifiedAccount { get; set; } = false;
         public int PositionId { get; set; }
+
         public Position Position { get; set; }
+        public ICollection<Groups> Groups { get; set; }
 
     }
 }

@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace SteamApplication.Entities
 {
-    public class Position
+    internal class Review
     {
-        public int Id { get; set; }
-        public string Name { get; set; } //staff
-
-        public ICollection<User> Users { get; set; }
     }
 }
