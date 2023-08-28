@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace SteamApplication.Entities
 {
-    public class Groups
+    public class Market
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int? Followers { get; set; }
-        public Int16 Rate { get; set; }
+        public int GameId { get; set; }
+        public int CompanyId { get; set; }
 
-        public ICollection<User> Users { get; set; }
+
+        public Game Game { get; set; }
+        public Company Company { get; set; }
     }
 }

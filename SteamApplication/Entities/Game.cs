@@ -12,10 +12,12 @@ namespace SteamApplication.Entities
         public string Name { get; set; }
         public string? Description { get; set; }
         public decimal? Cost { get; set; }
+        public int CompanyId { get; set; }
         public int CategoryId { get; set; }
         public Int16? Rate { get; set; }
 
         public Category Category { get; set; }
-        public ICollection<GameDev> GameDev { get; set; }
+        public Company Company { get; set; }
+        public ICollection<Market> Market { get; set; }
     }
 }

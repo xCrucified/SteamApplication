@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SteamApplication.Data.Utilities.SeederData;
+using SteamApplication.Entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -27,11 +29,22 @@ namespace SteamApplication.DatabaseContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            //configs
+            //modelBuilder.ApplyConfiguration(new ???());
+            //seeders
+            modelBuilder.Seed();
         }
 
-
         //--Tables
-        //public DbSet<???> ??? { get; set; }
-
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Country> Country { get; set; }
+        public DbSet<Company> Company { get; set; }
+        public DbSet<Game> Game { get; set; }
+        public DbSet<Groups> Groups { get; set; }
+        public DbSet<Market> Market { get; set; }
+        public DbSet<Platform> Platform { get; set; }
+        public DbSet<Position> Position { get; set; }
+        public DbSet<Review> Review { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

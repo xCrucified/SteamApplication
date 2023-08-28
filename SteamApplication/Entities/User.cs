@@ -16,7 +16,9 @@ namespace SteamApplication.Entities
         public DateTime Date { get; set; } //Date of registration
         public Boolean IsVerifiedAccount { get; set; } = false;
         public int PositionId { get; set; }
+        public int CountryId { get; set; }
 
+        public Country Country { get; set; }
         public Position Position { get; set; }
         public ICollection<Groups> Groups { get; set; }
 
