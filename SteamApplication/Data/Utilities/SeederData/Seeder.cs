@@ -64,21 +64,21 @@ namespace SteamApplication.Data.Utilities.SeederData
             new Company { Id = 15, Name = "Developer 15", Followers = 1500, CountryId = 15 });
 
             modelBuilder.Entity<Game>().HasData(
-            new Game { Id = 1, Name = "Game 1", Description = "Description 1", Cost = 9.99M, CategoryId = 1, Rate = 4, CompanyId = 1 },
-            new Game { Id = 2, Name = "Game 2", Description = "Description 2", Cost = 19.99M, CategoryId = 2, Rate = 3, CompanyId = 2 },
-            new Game { Id = 3, Name = "Game 3", Description = "Description 3", Cost = 14.99M, CategoryId = 3, Rate = 5, CompanyId = 3 },
-            new Game { Id = 4, Name = "Game 4", Description = "Description 4", Cost = 29.99M, CategoryId = 4, Rate = 4, CompanyId = 4 },
-            new Game { Id = 5, Name = "Game 5", Description = "Description 5", Cost = 9.99M, CategoryId = 5, Rate = 3, CompanyId = 5 },
-            new Game { Id = 6, Name = "Game 6", Description = "Description 6", Cost = 19.99M, CategoryId = 6, Rate = 4, CompanyId = 6 },
-            new Game { Id = 7, Name = "Game 7", Description = "Description 7", Cost = 14.99M, CategoryId = 7, Rate = 5, CompanyId = 7 },
-            new Game { Id = 8, Name = "Game 8", Description = "Description 8", Cost = 29.99M, CategoryId = 8, Rate = 3, CompanyId = 8 },
-            new Game { Id = 9, Name = "Game 9", Description = "Description 9", Cost = 9.99M, CategoryId = 9, Rate = 4, CompanyId = 9 },
-            new Game { Id = 10, Name = "Game 10", Description = "Description 10", Cost = 19.99M, CategoryId = 10, Rate = 5, CompanyId = 10 },
-            new Game { Id = 11, Name = "Game 11", Description = "Description 11", Cost = 14.99M, CategoryId = 11, Rate = 3, CompanyId = 11 },
-            new Game { Id = 12, Name = "Game 12", Description = "Description 12", Cost = 29.99M, CategoryId = 12, Rate = 4, CompanyId = 12 },
-            new Game { Id = 13, Name = "Game 13", Description = "Description 13", Cost = 9.99M, CategoryId = 13, Rate = 5, CompanyId = 13 },
-            new Game { Id = 14, Name = "Game 14", Description = "Description 14", Cost = 19.99M, CategoryId = 14, Rate = 3, CompanyId = 14 },
-            new Game { Id = 15, Name = "Game 15", Description = "Description 15", Cost = 14.99M, CategoryId = 15, Rate = 4, CompanyId = 15 });
+            new Game { Id = 1, Name = "Game 1", Description = "Description 1", Cost = 9.99M, CategoryId = 1, Rate = 4, CompanyId = 1, PlatformId = 1},
+            new Game { Id = 2, Name = "Game 2", Description = "Description 2", Cost = 19.99M, CategoryId = 2, Rate = 3, CompanyId = 2, PlatformId = 2 },
+            new Game { Id = 3, Name = "Game 3", Description = "Description 3", Cost = 14.99M, CategoryId = 3, Rate = 5, CompanyId = 3, PlatformId = 3 },
+            new Game { Id = 4, Name = "Game 4", Description = "Description 4", Cost = 29.99M, CategoryId = 4, Rate = 4, CompanyId = 4, PlatformId = 4 },
+            new Game { Id = 5, Name = "Game 5", Description = "Description 5", Cost = 9.99M, CategoryId = 5, Rate = 3, CompanyId = 5, PlatformId = 5 },
+            new Game { Id = 6, Name = "Game 6", Description = "Description 6", Cost = 19.99M, CategoryId = 6, Rate = 4, CompanyId = 6, PlatformId = 6},
+            new Game { Id = 7, Name = "Game 7", Description = "Description 7", Cost = 14.99M, CategoryId = 7, Rate = 5, CompanyId = 7, PlatformId = 7},
+            new Game { Id = 8, Name = "Game 8", Description = "Description 8", Cost = 29.99M, CategoryId = 8, Rate = 3, CompanyId = 8, PlatformId = 8},
+            new Game { Id = 9, Name = "Game 9", Description = "Description 9", Cost = 9.99M, CategoryId = 9, Rate = 4, CompanyId = 9, PlatformId = 9},
+            new Game { Id = 10, Name = "Game 10", Description = "Description 10", Cost = 19.99M, CategoryId = 10, Rate = 5, CompanyId = 10, PlatformId = 10 },
+            new Game { Id = 11, Name = "Game 11", Description = "Description 11", Cost = 14.99M, CategoryId = 11, Rate = 3, CompanyId = 11, PlatformId = 11 },
+            new Game { Id = 12, Name = "Game 12", Description = "Description 12", Cost = 29.99M, CategoryId = 12, Rate = 4, CompanyId = 12, PlatformId = 12 },
+            new Game { Id = 13, Name = "Game 13", Description = "Description 13", Cost = 9.99M, CategoryId = 13, Rate = 5, CompanyId = 13, PlatformId = 13 },
+            new Game { Id = 14, Name = "Game 14", Description = "Description 14", Cost = 19.99M, CategoryId = 14, Rate = 3, CompanyId = 14, PlatformId = 14 },
+            new Game { Id = 15, Name = "Game 15", Description = "Description 15", Cost = 14.99M, CategoryId = 15, Rate = 4, CompanyId = 15, PlatformId = 15 });
 
             modelBuilder.Entity<Groups>().HasData(
             new Groups { Id = 1, Name = "Group 1", Followers = 100, Rate = 4 },
@@ -159,7 +159,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-30),
                 IsVerifiedAccount = true,
                 PositionId = 1, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 1  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 1,
+                GroupId = 1,
             },
             new User
             {
@@ -171,7 +172,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-45),
                 IsVerifiedAccount = false,
                 PositionId = 2, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 2  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 2,
+                GroupId = 2, // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -183,7 +185,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-60),
                 IsVerifiedAccount = true,
                 PositionId = 3, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 3  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 3,
+                GroupId = 3,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -195,7 +198,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-75),
                 IsVerifiedAccount = false,
                 PositionId = 4, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 4  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 4,
+                GroupId = 4,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -207,7 +211,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-90),
                 IsVerifiedAccount = true,
                 PositionId = 5, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 5  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 5,
+                GroupId = 5, // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -219,7 +224,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-105),
                 IsVerifiedAccount = true,
                 PositionId = 6, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 6  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 6,
+                GroupId = 6,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -231,7 +237,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-120),
                 IsVerifiedAccount = false,
                 PositionId = 7, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 7  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 7,
+                GroupId = 7,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -243,7 +250,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-135),
                 IsVerifiedAccount = true,
                 PositionId = 8, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 8  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 8,
+                GroupId = 8, // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -255,7 +263,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-150),
                 IsVerifiedAccount = false,
                 PositionId = 9, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 9  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 9,
+                GroupId = 9,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -267,7 +276,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-165),
                 IsVerifiedAccount = true,
                 PositionId = 10, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 10  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 10,
+                GroupId = 10,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -279,7 +289,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-180),
                 IsVerifiedAccount = false,
                 PositionId = 11, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 11  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 11,
+                GroupId = 11,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -291,7 +302,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-195),
                 IsVerifiedAccount = true,
                 PositionId = 12, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 12  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 12,
+                GroupId = 12,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -303,7 +315,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-210),
                 IsVerifiedAccount = true,
                 PositionId = 13, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 13  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 13,
+                GroupId = 13,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -315,7 +328,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-225),
                 IsVerifiedAccount = false,
                 PositionId = 14, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 14  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 14,
+                GroupId = 14,  // Assuming PositionId and CountryId are valid IDs
             },
             new User
             {
@@ -327,7 +341,8 @@ namespace SteamApplication.Data.Utilities.SeederData
                 Date = DateTime.Now.AddDays(-240),
                 IsVerifiedAccount = true,
                 PositionId = 15, // Assuming PositionId and CountryId are valid IDs
-                CountryId = 15  // Assuming PositionId and CountryId are valid IDs
+                CountryId = 15,
+                GroupId = 15,  // Assuming PositionId and CountryId are valid IDs
             });
         }
     }

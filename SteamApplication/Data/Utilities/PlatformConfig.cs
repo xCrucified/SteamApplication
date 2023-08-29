@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SteamApplication.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,11 @@ using System.Threading.Tasks;
 
 namespace SteamApplication.Data.Utilities
 {
-    internal class PlatformConfig
+    public class PlatformConfig : IEntityTypeConfiguration<Platform>
     {
+        public void Configure(EntityTypeBuilder<Platform> builder)
+        {
+            builder.HasKey(e => e.Id);
+        }
     }
 }

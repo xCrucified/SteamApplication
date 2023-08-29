@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SteamApplication.Migrations
 {
-    public partial class Init : Migration
+    public partial class addmigrationInitDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace SteamApplication.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Category = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,7 +82,7 @@ namespace SteamApplication.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Company = table.Column<string>(type: "nvarchar(90)", maxLength: 90, nullable: false),
                     Followers = table.Column<int>(type: "int", nullable: false),
                     CountryId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -140,8 +140,8 @@ namespace SteamApplication.Migrations
                     Cost = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     CompanyId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Rate = table.Column<short>(type: "smallint", nullable: true),
-                    PlatformId = table.Column<int>(type: "int", nullable: true)
+                    PlatformId = table.Column<int>(type: "int", nullable: false),
+                    Rate = table.Column<short>(type: "smallint", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -162,7 +162,8 @@ namespace SteamApplication.Migrations
                         name: "FK_Game_Platform_PlatformId",
                         column: x => x.PlatformId,
                         principalTable: "Platform",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -190,38 +191,12 @@ namespace SteamApplication.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Market",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    GameId = table.Column<int>(type: "int", nullable: false),
-                    CompanyId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Market", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Market_Company_CompanyId",
-                        column: x => x.CompanyId,
-                        principalTable: "Company",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Market_Game_GameId",
-                        column: x => x.GameId,
-                        principalTable: "Game",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Review",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Commentaries = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Rating = table.Column<int>(type: "int", nullable: false),
                     GameId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
@@ -240,12 +215,12 @@ namespace SteamApplication.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
                 table: "Category",
-                columns: new[] { "Id", "Name" },
+                columns: new[] { "Id", "Category" },
                 values: new object[,]
                 {
                     { 1, "Category 1" },
@@ -362,7 +337,7 @@ namespace SteamApplication.Migrations
 
             migrationBuilder.InsertData(
                 table: "Company",
-                columns: new[] { "Id", "CountryId", "Followers", "Name" },
+                columns: new[] { "Id", "CountryId", "Followers", "Company" },
                 values: new object[,]
                 {
                     { 1, 1, 100, "Developer 1" },
@@ -387,21 +362,21 @@ namespace SteamApplication.Migrations
                 columns: new[] { "Id", "CountryId", "Date", "Email", "IsVerifiedAccount", "NickName", "Password", "Phone", "PositionId" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 7, 29, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3955), "user1@example.com", true, "User1", "password1", "1234567890", 1 },
-                    { 2, 2, new DateTime(2023, 7, 14, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3968), "user2@example.com", false, "User2", "password2", "9876543210", 2 },
-                    { 3, 3, new DateTime(2023, 6, 29, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3969), "user3@example.com", true, "User3", "password3", "5555555555", 3 },
-                    { 4, 4, new DateTime(2023, 6, 14, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3971), "user4@example.com", false, "User4", "password4", "4444444444", 4 },
-                    { 5, 5, new DateTime(2023, 5, 30, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3972), "user5@example.com", true, "User5", "password5", "5555555555", 5 },
-                    { 6, 6, new DateTime(2023, 5, 15, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3974), "user6@example.com", true, "User6", "password6", "6666666666", 6 },
-                    { 7, 7, new DateTime(2023, 4, 30, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3975), "user7@example.com", false, "User7", "password7", "7777777777", 7 },
-                    { 8, 8, new DateTime(2023, 4, 15, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3978), "user8@example.com", true, "User8", "password8", "8888888888", 8 },
-                    { 9, 9, new DateTime(2023, 3, 31, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3979), "user9@example.com", false, "User9", "password9", "9999999999", 9 },
-                    { 10, 10, new DateTime(2023, 3, 16, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3980), "user10@example.com", true, "User10", "password10", "1010101010", 10 },
-                    { 11, 11, new DateTime(2023, 3, 1, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3981), "user11@example.com", false, "User11", "password11", "1111111111", 11 },
-                    { 12, 12, new DateTime(2023, 2, 14, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3982), "user12@example.com", true, "User12", "password12", "1212121212", 12 },
-                    { 13, 13, new DateTime(2023, 1, 30, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3983), "user13@example.com", true, "User13", "password13", "1313131313", 13 },
-                    { 14, 14, new DateTime(2023, 1, 15, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3984), "user14@example.com", false, "User14", "password14", "1414141414", 14 },
-                    { 15, 15, new DateTime(2022, 12, 31, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3985), "user15@example.com", true, "User15", "password15", "1515151515", 15 }
+                    { 1, 1, new DateTime(2023, 7, 30, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7764), "user1@example.com", true, "User1", "password1", "1234567890", 1 },
+                    { 2, 2, new DateTime(2023, 7, 15, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7776), "user2@example.com", false, "User2", "password2", "9876543210", 2 },
+                    { 3, 3, new DateTime(2023, 6, 30, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7778), "user3@example.com", true, "User3", "password3", "5555555555", 3 },
+                    { 4, 4, new DateTime(2023, 6, 15, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7779), "user4@example.com", false, "User4", "password4", "4444444444", 4 },
+                    { 5, 5, new DateTime(2023, 5, 31, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7780), "user5@example.com", true, "User5", "password5", "5555555555", 5 },
+                    { 6, 6, new DateTime(2023, 5, 16, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7781), "user6@example.com", true, "User6", "password6", "6666666666", 6 },
+                    { 7, 7, new DateTime(2023, 5, 1, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7783), "user7@example.com", false, "User7", "password7", "7777777777", 7 },
+                    { 8, 8, new DateTime(2023, 4, 16, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7784), "user8@example.com", true, "User8", "password8", "8888888888", 8 },
+                    { 9, 9, new DateTime(2023, 4, 1, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7785), "user9@example.com", false, "User9", "password9", "9999999999", 9 },
+                    { 10, 10, new DateTime(2023, 3, 17, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7786), "user10@example.com", true, "User10", "password10", "1010101010", 10 },
+                    { 11, 11, new DateTime(2023, 3, 2, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7787), "user11@example.com", false, "User11", "password11", "1111111111", 11 },
+                    { 12, 12, new DateTime(2023, 2, 15, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7789), "user12@example.com", true, "User12", "password12", "1212121212", 12 },
+                    { 13, 13, new DateTime(2023, 1, 31, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7790), "user13@example.com", true, "User13", "password13", "1313131313", 13 },
+                    { 14, 14, new DateTime(2023, 1, 16, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7791), "user14@example.com", false, "User14", "password14", "1414141414", 14 },
+                    { 15, 15, new DateTime(2023, 1, 1, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7792), "user15@example.com", true, "User15", "password15", "1515151515", 15 }
                 });
 
             migrationBuilder.InsertData(
@@ -409,48 +384,26 @@ namespace SteamApplication.Migrations
                 columns: new[] { "Id", "CategoryId", "CompanyId", "Cost", "Description", "Name", "PlatformId", "Rate" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, 9.99m, "Description 1", "Game 1", null, (short)4 },
-                    { 2, 2, 2, 19.99m, "Description 2", "Game 2", null, (short)3 },
-                    { 3, 3, 3, 14.99m, "Description 3", "Game 3", null, (short)5 },
-                    { 4, 4, 4, 29.99m, "Description 4", "Game 4", null, (short)4 },
-                    { 5, 5, 5, 9.99m, "Description 5", "Game 5", null, (short)3 },
-                    { 6, 6, 6, 19.99m, "Description 6", "Game 6", null, (short)4 },
-                    { 7, 7, 7, 14.99m, "Description 7", "Game 7", null, (short)5 },
-                    { 8, 8, 8, 29.99m, "Description 8", "Game 8", null, (short)3 },
-                    { 9, 9, 9, 9.99m, "Description 9", "Game 9", null, (short)4 },
-                    { 10, 10, 10, 19.99m, "Description 10", "Game 10", null, (short)5 },
-                    { 11, 11, 11, 14.99m, "Description 11", "Game 11", null, (short)3 },
-                    { 12, 12, 12, 29.99m, "Description 12", "Game 12", null, (short)4 },
-                    { 13, 13, 13, 9.99m, "Description 13", "Game 13", null, (short)5 },
-                    { 14, 14, 14, 19.99m, "Description 14", "Game 14", null, (short)3 },
-                    { 15, 15, 15, 14.99m, "Description 15", "Game 15", null, (short)4 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Market",
-                columns: new[] { "Id", "CompanyId", "GameId" },
-                values: new object[,]
-                {
-                    { 1, 1, 1 },
-                    { 2, 2, 2 },
-                    { 3, 3, 3 },
-                    { 4, 4, 4 },
-                    { 5, 5, 5 },
-                    { 6, 6, 6 },
-                    { 7, 7, 7 },
-                    { 8, 8, 8 },
-                    { 9, 9, 9 },
-                    { 10, 10, 10 },
-                    { 11, 11, 11 },
-                    { 12, 12, 12 },
-                    { 13, 13, 13 },
-                    { 14, 14, 14 },
-                    { 15, 15, 15 }
+                    { 1, 1, 1, 9.99m, "Description 1", "Game 1", 1, (short)4 },
+                    { 2, 2, 2, 19.99m, "Description 2", "Game 2", 2, (short)3 },
+                    { 3, 3, 3, 14.99m, "Description 3", "Game 3", 3, (short)5 },
+                    { 4, 4, 4, 29.99m, "Description 4", "Game 4", 4, (short)4 },
+                    { 5, 5, 5, 9.99m, "Description 5", "Game 5", 5, (short)3 },
+                    { 6, 6, 6, 19.99m, "Description 6", "Game 6", 6, (short)4 },
+                    { 7, 7, 7, 14.99m, "Description 7", "Game 7", 7, (short)5 },
+                    { 8, 8, 8, 29.99m, "Description 8", "Game 8", 8, (short)3 },
+                    { 9, 9, 9, 9.99m, "Description 9", "Game 9", 9, (short)4 },
+                    { 10, 10, 10, 19.99m, "Description 10", "Game 10", 10, (short)5 },
+                    { 11, 11, 11, 14.99m, "Description 11", "Game 11", 11, (short)3 },
+                    { 12, 12, 12, 29.99m, "Description 12", "Game 12", 12, (short)4 },
+                    { 13, 13, 13, 9.99m, "Description 13", "Game 13", 13, (short)5 },
+                    { 14, 14, 14, 19.99m, "Description 14", "Game 14", 14, (short)3 },
+                    { 15, 15, 15, 14.99m, "Description 15", "Game 15", 15, (short)4 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Review",
-                columns: new[] { "Id", "Comment", "GameId", "Rating", "UserId" },
+                columns: new[] { "Id", "Commentaries", "GameId", "Rating", "UserId" },
                 values: new object[,]
                 {
                     { 1, "Review 1", 1, 4, 1 },
@@ -496,16 +449,6 @@ namespace SteamApplication.Migrations
                 column: "UsersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Market_CompanyId",
-                table: "Market",
-                column: "CompanyId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Market_GameId",
-                table: "Market",
-                column: "GameId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Review_GameId",
                 table: "Review",
                 column: "GameId");
@@ -530,9 +473,6 @@ namespace SteamApplication.Migrations
         {
             migrationBuilder.DropTable(
                 name: "GroupsUser");
-
-            migrationBuilder.DropTable(
-                name: "Market");
 
             migrationBuilder.DropTable(
                 name: "Review");

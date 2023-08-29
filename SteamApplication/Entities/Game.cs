@@ -14,8 +14,10 @@ namespace SteamApplication.Entities
         public decimal? Cost { get; set; }
         public int CompanyId { get; set; }
         public int CategoryId { get; set; }
+        public int PlatformId { get; set; }
         public Int16? Rate { get; set; }
 
+        public Platform Platform { get; set; }
         public Category Category { get; set; }
         public Company Company { get; set; }
 

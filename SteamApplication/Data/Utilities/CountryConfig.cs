@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SteamApplication.Data.Utilities
 {
-    public class CountyConfig : IEntityTypeConfiguration<Country>
+    public class CountryConfig : IEntityTypeConfiguration<Country>
     {
         public void Configure(EntityTypeBuilder<Country> builder)
         {

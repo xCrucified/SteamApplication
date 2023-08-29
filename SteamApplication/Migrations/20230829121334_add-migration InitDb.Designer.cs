@@ -12,8 +12,8 @@ using SteamApplication.DatabaseContext;
 namespace SteamApplication.Migrations
 {
     [DbContext(typeof(SteamDb))]
-    [Migration("20230828173808_Init")]
-    partial class Init
+    [Migration("20230829121334_add-migration InitDb")]
+    partial class addmigrationInitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,9 @@ namespace SteamApplication.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("Category");
 
                     b.HasKey("Id");
 
@@ -149,7 +151,9 @@ namespace SteamApplication.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(90)
+                        .HasColumnType("nvarchar(90)")
+                        .HasColumnName("Company");
 
                     b.HasKey("Id");
 
@@ -383,7 +387,7 @@ namespace SteamApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PlatformId")
+                    b.Property<int>("PlatformId")
                         .HasColumnType("int");
 
                     b.Property<short?>("Rate")
@@ -408,6 +412,7 @@ namespace SteamApplication.Migrations
                             Cost = 9.99m,
                             Description = "Description 1",
                             Name = "Game 1",
+                            PlatformId = 1,
                             Rate = (short)4
                         },
                         new
@@ -418,6 +423,7 @@ namespace SteamApplication.Migrations
                             Cost = 19.99m,
                             Description = "Description 2",
                             Name = "Game 2",
+                            PlatformId = 2,
                             Rate = (short)3
                         },
                         new
@@ -428,6 +434,7 @@ namespace SteamApplication.Migrations
                             Cost = 14.99m,
                             Description = "Description 3",
                             Name = "Game 3",
+                            PlatformId = 3,
                             Rate = (short)5
                         },
                         new
@@ -438,6 +445,7 @@ namespace SteamApplication.Migrations
                             Cost = 29.99m,
                             Description = "Description 4",
                             Name = "Game 4",
+                            PlatformId = 4,
                             Rate = (short)4
                         },
                         new
@@ -448,6 +456,7 @@ namespace SteamApplication.Migrations
                             Cost = 9.99m,
                             Description = "Description 5",
                             Name = "Game 5",
+                            PlatformId = 5,
                             Rate = (short)3
                         },
                         new
@@ -458,6 +467,7 @@ namespace SteamApplication.Migrations
                             Cost = 19.99m,
                             Description = "Description 6",
                             Name = "Game 6",
+                            PlatformId = 6,
                             Rate = (short)4
                         },
                         new
@@ -468,6 +478,7 @@ namespace SteamApplication.Migrations
                             Cost = 14.99m,
                             Description = "Description 7",
                             Name = "Game 7",
+                            PlatformId = 7,
                             Rate = (short)5
                         },
                         new
@@ -478,6 +489,7 @@ namespace SteamApplication.Migrations
                             Cost = 29.99m,
                             Description = "Description 8",
                             Name = "Game 8",
+                            PlatformId = 8,
                             Rate = (short)3
                         },
                         new
@@ -488,6 +500,7 @@ namespace SteamApplication.Migrations
                             Cost = 9.99m,
                             Description = "Description 9",
                             Name = "Game 9",
+                            PlatformId = 9,
                             Rate = (short)4
                         },
                         new
@@ -498,6 +511,7 @@ namespace SteamApplication.Migrations
                             Cost = 19.99m,
                             Description = "Description 10",
                             Name = "Game 10",
+                            PlatformId = 10,
                             Rate = (short)5
                         },
                         new
@@ -508,6 +522,7 @@ namespace SteamApplication.Migrations
                             Cost = 14.99m,
                             Description = "Description 11",
                             Name = "Game 11",
+                            PlatformId = 11,
                             Rate = (short)3
                         },
                         new
@@ -518,6 +533,7 @@ namespace SteamApplication.Migrations
                             Cost = 29.99m,
                             Description = "Description 12",
                             Name = "Game 12",
+                            PlatformId = 12,
                             Rate = (short)4
                         },
                         new
@@ -528,6 +544,7 @@ namespace SteamApplication.Migrations
                             Cost = 9.99m,
                             Description = "Description 13",
                             Name = "Game 13",
+                            PlatformId = 13,
                             Rate = (short)5
                         },
                         new
@@ -538,6 +555,7 @@ namespace SteamApplication.Migrations
                             Cost = 19.99m,
                             Description = "Description 14",
                             Name = "Game 14",
+                            PlatformId = 14,
                             Rate = (short)3
                         },
                         new
@@ -548,6 +566,7 @@ namespace SteamApplication.Migrations
                             Cost = 14.99m,
                             Description = "Description 15",
                             Name = "Game 15",
+                            PlatformId = 15,
                             Rate = (short)4
                         });
                 });
@@ -679,121 +698,6 @@ namespace SteamApplication.Migrations
                             Followers = 1500,
                             Name = "Group 15",
                             Rate = (short)4
-                        });
-                });
-
-            modelBuilder.Entity("SteamApplication.Entities.Market", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("GameId");
-
-                    b.ToTable("Market");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CompanyId = 1,
-                            GameId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CompanyId = 2,
-                            GameId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CompanyId = 3,
-                            GameId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CompanyId = 4,
-                            GameId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CompanyId = 5,
-                            GameId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CompanyId = 6,
-                            GameId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CompanyId = 7,
-                            GameId = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CompanyId = 8,
-                            GameId = 8
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CompanyId = 9,
-                            GameId = 9
-                        },
-                        new
-                        {
-                            Id = 10,
-                            CompanyId = 10,
-                            GameId = 10
-                        },
-                        new
-                        {
-                            Id = 11,
-                            CompanyId = 11,
-                            GameId = 11
-                        },
-                        new
-                        {
-                            Id = 12,
-                            CompanyId = 12,
-                            GameId = 12
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CompanyId = 13,
-                            GameId = 13
-                        },
-                        new
-                        {
-                            Id = 14,
-                            CompanyId = 14,
-                            GameId = 14
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CompanyId = 15,
-                            GameId = 15
                         });
                 });
 
@@ -994,8 +898,8 @@ namespace SteamApplication.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Commentaries");
 
                     b.Property<int>("GameId")
                         .HasColumnType("int");
@@ -1184,7 +1088,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 1,
                             CountryId = 1,
-                            Date = new DateTime(2023, 7, 29, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3955),
+                            Date = new DateTime(2023, 7, 30, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7764),
                             Email = "user1@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User1",
@@ -1196,7 +1100,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 2,
                             CountryId = 2,
-                            Date = new DateTime(2023, 7, 14, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3968),
+                            Date = new DateTime(2023, 7, 15, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7776),
                             Email = "user2@example.com",
                             IsVerifiedAccount = false,
                             NickName = "User2",
@@ -1208,7 +1112,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 3,
                             CountryId = 3,
-                            Date = new DateTime(2023, 6, 29, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3969),
+                            Date = new DateTime(2023, 6, 30, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7778),
                             Email = "user3@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User3",
@@ -1220,7 +1124,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 4,
                             CountryId = 4,
-                            Date = new DateTime(2023, 6, 14, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3971),
+                            Date = new DateTime(2023, 6, 15, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7779),
                             Email = "user4@example.com",
                             IsVerifiedAccount = false,
                             NickName = "User4",
@@ -1232,7 +1136,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 5,
                             CountryId = 5,
-                            Date = new DateTime(2023, 5, 30, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3972),
+                            Date = new DateTime(2023, 5, 31, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7780),
                             Email = "user5@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User5",
@@ -1244,7 +1148,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 6,
                             CountryId = 6,
-                            Date = new DateTime(2023, 5, 15, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3974),
+                            Date = new DateTime(2023, 5, 16, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7781),
                             Email = "user6@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User6",
@@ -1256,7 +1160,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 7,
                             CountryId = 7,
-                            Date = new DateTime(2023, 4, 30, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3975),
+                            Date = new DateTime(2023, 5, 1, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7783),
                             Email = "user7@example.com",
                             IsVerifiedAccount = false,
                             NickName = "User7",
@@ -1268,7 +1172,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 8,
                             CountryId = 8,
-                            Date = new DateTime(2023, 4, 15, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3978),
+                            Date = new DateTime(2023, 4, 16, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7784),
                             Email = "user8@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User8",
@@ -1280,7 +1184,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 9,
                             CountryId = 9,
-                            Date = new DateTime(2023, 3, 31, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3979),
+                            Date = new DateTime(2023, 4, 1, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7785),
                             Email = "user9@example.com",
                             IsVerifiedAccount = false,
                             NickName = "User9",
@@ -1292,7 +1196,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 10,
                             CountryId = 10,
-                            Date = new DateTime(2023, 3, 16, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3980),
+                            Date = new DateTime(2023, 3, 17, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7786),
                             Email = "user10@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User10",
@@ -1304,7 +1208,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 11,
                             CountryId = 11,
-                            Date = new DateTime(2023, 3, 1, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3981),
+                            Date = new DateTime(2023, 3, 2, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7787),
                             Email = "user11@example.com",
                             IsVerifiedAccount = false,
                             NickName = "User11",
@@ -1316,7 +1220,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 12,
                             CountryId = 12,
-                            Date = new DateTime(2023, 2, 14, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3982),
+                            Date = new DateTime(2023, 2, 15, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7789),
                             Email = "user12@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User12",
@@ -1328,7 +1232,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 13,
                             CountryId = 13,
-                            Date = new DateTime(2023, 1, 30, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3983),
+                            Date = new DateTime(2023, 1, 31, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7790),
                             Email = "user13@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User13",
@@ -1340,7 +1244,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 14,
                             CountryId = 14,
-                            Date = new DateTime(2023, 1, 15, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3984),
+                            Date = new DateTime(2023, 1, 16, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7791),
                             Email = "user14@example.com",
                             IsVerifiedAccount = false,
                             NickName = "User14",
@@ -1352,7 +1256,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 15,
                             CountryId = 15,
-                            Date = new DateTime(2022, 12, 31, 20, 38, 8, 632, DateTimeKind.Local).AddTicks(3985),
+                            Date = new DateTime(2023, 1, 1, 15, 13, 34, 177, DateTimeKind.Local).AddTicks(7792),
                             Email = "user15@example.com",
                             IsVerifiedAccount = true,
                             NickName = "User15",
@@ -1402,46 +1306,31 @@ namespace SteamApplication.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SteamApplication.Entities.Platform", null)
+                    b.HasOne("SteamApplication.Entities.Platform", "Platform")
                         .WithMany("Games")
-                        .HasForeignKey("PlatformId");
+                        .HasForeignKey("PlatformId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 
                     b.Navigation("Company");
-                });
 
-            modelBuilder.Entity("SteamApplication.Entities.Market", b =>
-                {
-                    b.HasOne("SteamApplication.Entities.Company", "Company")
-                        .WithMany("Market")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SteamApplication.Entities.Game", "Game")
-                        .WithMany("Market")
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
-
-                    b.Navigation("Game");
+                    b.Navigation("Platform");
                 });
 
             modelBuilder.Entity("SteamApplication.Entities.Review", b =>
                 {
                     b.HasOne("SteamApplication.Entities.Game", "Game")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SteamApplication.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("Reviews")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Game");
@@ -1476,8 +1365,6 @@ namespace SteamApplication.Migrations
             modelBuilder.Entity("SteamApplication.Entities.Company", b =>
                 {
                     b.Navigation("Game");
-
-                    b.Navigation("Market");
                 });
 
             modelBuilder.Entity("SteamApplication.Entities.Country", b =>
@@ -1489,7 +1376,7 @@ namespace SteamApplication.Migrations
 
             modelBuilder.Entity("SteamApplication.Entities.Game", b =>
                 {
-                    b.Navigation("Market");
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("SteamApplication.Entities.Platform", b =>
@@ -1500,6 +1387,11 @@ namespace SteamApplication.Migrations
             modelBuilder.Entity("SteamApplication.Entities.Position", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("SteamApplication.Entities.User", b =>
+                {
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

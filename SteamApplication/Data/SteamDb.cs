@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SteamApplication.Data.Utilities;
 using SteamApplication.Data.Utilities.SeederData;
 using SteamApplication.Entities;
 using System;
@@ -30,7 +31,15 @@ namespace SteamApplication.DatabaseContext
         {
             base.OnModelCreating(modelBuilder);
             //configs
-            //modelBuilder.ApplyConfiguration(new ???());
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new CompanyConfig());
+            modelBuilder.ApplyConfiguration(new CountryConfig());
+            modelBuilder.ApplyConfiguration(new GameConfig());
+            modelBuilder.ApplyConfiguration(new GroupConfig());
+            modelBuilder.ApplyConfiguration(new PlatformConfig());
+            modelBuilder.ApplyConfiguration(new PositionConfig());
+            modelBuilder.ApplyConfiguration(new ReviewConfig());
+            modelBuilder.ApplyConfiguration(new UserConfig());
             //seeders
             modelBuilder.Seed();
         }
@@ -39,10 +48,9 @@ namespace SteamApplication.DatabaseContext
         public DbSet<Category> Category { get; set; }
         public DbSet<Country> Country { get; set; }
         public DbSet<Company> Company { get; set; }
+        public DbSet<Platform> Platform { get; set; }
         public DbSet<Game> Game { get; set; }
         public DbSet<Groups> Groups { get; set; }
-        public DbSet<Market> Market { get; set; }
-        public DbSet<Platform> Platform { get; set; }
         public DbSet<Position> Position { get; set; }
         public DbSet<Review> Review { get; set; }
         public DbSet<User> User { get; set; }
