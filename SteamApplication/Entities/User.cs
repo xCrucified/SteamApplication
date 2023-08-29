@@ -21,6 +21,6 @@ namespace SteamApplication.Entities
         public Country Country { get; set; }
         public Position Position { get; set; }
         public ICollection<Groups> Groups { get; set; }
-
+        public ICollection<Review> Reviews { get; set; }
     }
 }

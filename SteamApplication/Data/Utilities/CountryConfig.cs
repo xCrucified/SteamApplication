@@ -14,6 +14,7 @@ namespace SteamApplication.Data.Utilities
         public void Configure(EntityTypeBuilder<Country> builder)
         {
             builder.HasKey(x => x.Id);
+
         }
     }
 }

@@ -15,7 +15,6 @@ namespace SteamApplication.Data.Utilities
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).HasMaxLength(90).HasColumnName("Company").IsRequired();
-            builder.HasMany(x => x.Game).WithOne(g => g.Company).HasForeignKey(g => g.CompanyId);
             builder.HasOne(x => x.Country).WithMany(x => x.Company).HasForeignKey(x => x.CountryId);
         }
     }

@@ -97,23 +97,6 @@ namespace SteamApplication.Data.Utilities.SeederData
             new Groups { Id = 14, Name = "Group 14", Followers = 1400, Rate = 3 },
             new Groups { Id = 15, Name = "Group 15", Followers = 1500, Rate = 4 });
 
-            modelBuilder.Entity<Market>().HasData(
-            new Market { Id = 1, GameId = 1, CompanyId = 1 },
-            new Market { Id = 2, GameId = 2, CompanyId = 2 },
-            new Market { Id = 3, GameId = 3, CompanyId = 3 },
-            new Market { Id = 4, GameId = 4, CompanyId = 4 },
-            new Market { Id = 5, GameId = 5, CompanyId = 5 },
-            new Market { Id = 6, GameId = 6, CompanyId = 6 },
-            new Market { Id = 7, GameId = 7, CompanyId = 7 },
-            new Market { Id = 8, GameId = 8, CompanyId = 8 },
-            new Market { Id = 9, GameId = 9, CompanyId = 9 },
-            new Market { Id = 10, GameId = 10, CompanyId = 10 },
-            new Market { Id = 11, GameId = 11, CompanyId = 11 },
-            new Market { Id = 12, GameId = 12, CompanyId = 12 },
-            new Market { Id = 13, GameId = 13, CompanyId = 13 },
-            new Market { Id = 14, GameId = 14, CompanyId = 14 },
-            new Market { Id = 15, GameId = 15, CompanyId = 15 });
-
             modelBuilder.Entity<Platform>().HasData(
             new Platform { Id = 1, Name = "Platform 1" },
             new Platform { Id = 2, Name = "Platform 2" },

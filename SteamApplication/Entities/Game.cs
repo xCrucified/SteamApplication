@@ -18,6 +18,7 @@ namespace SteamApplication.Entities
 
         public Category Category { get; set; }
         public Company Company { get; set; }
-        public ICollection<Market> Market { get; set; }
+
+        public ICollection<Review> Reviews { get; set; }
     }
 }

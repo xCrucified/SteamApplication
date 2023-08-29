@@ -16,6 +16,5 @@ namespace SteamApplication.Entities
 
         public ICollection<Game> Game { get; set; }
         public Country Country { get; set; }
-        public ICollection<Market> Market { get; set; }
     }
 }
