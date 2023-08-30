@@ -42,7 +42,7 @@ namespace SteamApplication.DatabaseContext
             modelBuilder.ApplyConfiguration(new UserConfig());
             //seeders
             modelBuilder.Seed();
-        }
+        } 
 
         //--Tables
         public DbSet<Category> Category { get; set; }
