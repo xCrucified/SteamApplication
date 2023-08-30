@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SteamApplication.DatabaseContext;
 
 namespace Bob
 {
@@ -11,6 +12,7 @@ namespace Bob
     {
         static void Main(string[] args)
         {
+             SteamDb db = new SteamDb();
 
         }
     }
