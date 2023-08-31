@@ -24,5 +24,10 @@ namespace Wpf
         {
             InitializeComponent();
         }
+
+        private void ClearOutlinedComboBox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
