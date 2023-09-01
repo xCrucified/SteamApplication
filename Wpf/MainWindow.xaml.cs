@@ -40,5 +40,10 @@ namespace Wpf
         {
             ComboBoxTxt3.Text = string.Empty;
         }
+
+        private void ComboBox_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("spitgw");
+        }
     }
 }

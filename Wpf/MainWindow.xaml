@@ -28,7 +28,7 @@
       Click="ClearOutlinedComboBox_Click"
       Content="Clear"
       Style="{StaticResource MaterialDesignFlatButton}" />
-            <ComboBox
+            <ComboBox PreviewMouseLeftButtonDown="ComboBox_Clicked"
                 x:Name="ComboBoxTxt"
   materialDesign:HintAssist.Hint="OS">
                 <ComboBoxItem
@@ -100,10 +100,6 @@
             <RowDefinition Height="1*"  />
             <RowDefinition Height="1*"  />
         </Grid.RowDefinitions>
-
-    
-
-
 
     </Grid>
 </Window>
