@@ -27,11 +27,12 @@ namespace Wpf.Windows
     public partial class GameListWindow : Window
     {
         string connStr = null;
-
-        public GameListWindow(string conn)
+        public GameListWindow()
         {
-            connStr = conn;
+            InitializeComponent();
+            
         }
+
         private void Btn_ApproveClick(object sender, RoutedEventArgs e)
         {
             Create();
