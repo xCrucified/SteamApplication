@@ -25,9 +25,20 @@ namespace Wpf
             InitializeComponent();
         }
 
+        
         private void ClearOutlinedComboBox_Click(object sender, RoutedEventArgs e)
         {
+            ComboBoxTxt.Text = string.Empty;
+        }
 
+        private void ClearOutlinedComboBox_Click2(object sender, RoutedEventArgs e)
+        {
+            ComboBoxTxt2.Text = string.Empty;
+        }
+
+        private void ClearOutlinedComboBox_Click3(object sender, RoutedEventArgs e)
+        {
+            ComboBoxTxt3.Text = string.Empty;
         }
     }
 }
