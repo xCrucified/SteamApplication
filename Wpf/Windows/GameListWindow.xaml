@@ -1,0 +1,39 @@
+﻿<Window x:Class="Wpf.Windows.GameListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.Windows"
+        mc:Ignorable="d"
+        Title="GameListWindow" Height="450" Width="400">
+    <Border BorderThickness="4" Background="DarkGray">
+        
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+        <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center">Name:</Label>
+        <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="1">Description:</Label>
+        <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="2">Cost:</Label>
+        <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="3">Company:</Label>
+        <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="4">Category:</Label>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" x:Name="Name_txtBlox" Background="Wheat"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Desc_txtBlox" Background="Wheat"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Cost_txtBlox" Background="Wheat"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Comp_txtBlox" Background="Wheat"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Cat_txtBlox" Background="Wheat"/>
+
+            <Button Background="Wheat" Grid.Row="5" Grid.ColumnSpan="3" FontSize="19" FontWeight="Black" Click="Btn_ApproveClick">Click if u complate</Button>
+    </Grid>
+    </Border>
+</Window>

@@ -22,7 +22,7 @@ namespace SteamApplication.DatabaseContext
         {
             base.OnConfiguring(optionsBuilder);
 
-            string conn = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SteamDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            string conn = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SteamDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             optionsBuilder.UseSqlServer(conn);
         }
 

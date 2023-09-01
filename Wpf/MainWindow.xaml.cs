@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.Windows;
 
 namespace Wpf
 {
@@ -21,6 +22,8 @@ namespace Wpf
     public partial class MainWindow : Window
     {
         ReviewWindow rw = new ReviewWindow();
+        LibraryWindow lw = new LibraryWindow();
+        GameListWindow gw = new GameListWindow();
         public MainWindow()
         {
             InitializeComponent();
@@ -44,8 +47,17 @@ namespace Wpf
 
         private void ReviewsList_Click(object sender, MouseButtonEventArgs e)
         {
-
             rw.Show();
+        }
+
+        private void LibraryList_Click(object sender, MouseButtonEventArgs e)
+        {
+            lw.Show();
+        }
+
+        private void GameList_Click(object sender, MouseButtonEventArgs e)
+        {
+            gw.Show();
         }
     }
 }

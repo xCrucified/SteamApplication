@@ -32,12 +32,12 @@
             <ComboBox Foreground="Black" 
                 x:Name="ComboBoxTxt"
   materialDesign:HintAssist.Hint="Game">
-                <ComboBoxItem
+                <ComboBoxItem PreviewMouseDown="LibraryList_Click"
     Content="Library" />
                 <ComboBoxItem PreviewMouseDown="ReviewsList_Click"
     Content="Reviews" />
-                <ComboBoxItem
-    Content="Games" />
+                <ComboBoxItem PreviewMouseDown="GameList_Click"
+    Content="Add Game" />
             </ComboBox>
         </StackPanel>
 
@@ -85,8 +85,8 @@
     Content="Profile"   />
             </ComboBox>
         </StackPanel>
-        <!--<DataGrid></DataGrid>-->
-            <Grid.ColumnDefinitions>
+        
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width = "1*" />
             <ColumnDefinition Width = "1*" />
             <ColumnDefinition Width = "1*" />

@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
         Title="ReviewWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="DataGrid_Review"></DataGrid>
+        <DataGrid x:Name="DataGrid_Review"/>
     </Grid>
 </Window>

@@ -5,7 +5,6 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamApplication", "SteamApplication\SteamApplication.csproj", "{62F174D8-6C42-44DB-AB9B-34D1954FAC9E}"
 	ProjectSection(ProjectDependencies) = postProject
-		{0955B411-CDA1-4400-AD27-BF9EAF47DE5F} = {0955B411-CDA1-4400-AD27-BF9EAF47DE5F}
 		{69AA8DB9-AC61-489E-B198-4149B0A1B6C3} = {69AA8DB9-AC61-489E-B198-4149B0A1B6C3}
 	EndProjectSection
 EndProject

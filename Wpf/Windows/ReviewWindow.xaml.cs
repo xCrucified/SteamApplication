@@ -23,7 +23,7 @@ namespace Wpf
     /// </summary>
     public partial class ReviewWindow : Window
     {
-        private IUoW uoW = new UnitOfWork();
+        IUoW uoW = new UnitOfWork();
         public ReviewWindow()
         {
             InitializeComponent();
@@ -33,10 +33,9 @@ namespace Wpf
                 x.Id,
                 x.NickName,
                 x.Country,
-                x.Date
-                //PositionName = x.Position.Name
+                x.Date,
+                PositionName = x.Position.Name
             });
-
 
             uoW.Save();
 
