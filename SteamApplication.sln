@@ -9,9 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamApplication", "SteamAp
 		{69AA8DB9-AC61-489E-B198-4149B0A1B6C3} = {69AA8DB9-AC61-489E-B198-4149B0A1B6C3}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data_access", "data_access\data_access.csproj", "{69AA8DB9-AC61-489E-B198-4149B0A1B6C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "data_access", "data_access\data_access.csproj", "{69AA8DB9-AC61-489E-B198-4149B0A1B6C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf", "Wpf\Wpf.csproj", "{0955B411-CDA1-4400-AD27-BF9EAF47DE5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf", "Wpf\Wpf.csproj", "{0955B411-CDA1-4400-AD27-BF9EAF47DE5F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69AA8DB9-AC61-489E-B198-4149B0A1B6C3} = {69AA8DB9-AC61-489E-B198-4149B0A1B6C3}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

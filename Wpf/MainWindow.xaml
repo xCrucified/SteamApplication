@@ -13,7 +13,8 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Steam" Height="750" Width="1200">
+        Title="Steam" Height="750" Width="1200"
+        WindowStartupLocation="CenterOwner">
     
     <Grid Background="Gainsboro">
         <StackPanel Grid.ColumnSpan="2" Margin="10">
@@ -28,12 +29,12 @@
       Click="ClearOutlinedComboBox_Click"
       Content="Clear"
       Style="{StaticResource MaterialDesignFlatButton}" />
-            <ComboBox PreviewMouseLeftButtonDown="ComboBox_Clicked"
+            <ComboBox Foreground="Black" 
                 x:Name="ComboBoxTxt"
-  materialDesign:HintAssist.Hint="OS">
+  materialDesign:HintAssist.Hint="Game">
                 <ComboBoxItem
     Content="Library" />
-                <ComboBoxItem
+                <ComboBoxItem PreviewMouseDown="ReviewsList_Click"
     Content="Reviews" />
                 <ComboBoxItem
     Content="Games" />
@@ -54,7 +55,7 @@
       Style="{StaticResource MaterialDesignFlatButton}" />
             <ComboBox
                 x:Name="ComboBoxTxt2"
-  materialDesign:HintAssist.Hint="OS">
+  materialDesign:HintAssist.Hint="Group">
                 <ComboBoxItem
     Content="Groups" />
                 <ComboBoxItem
@@ -75,11 +76,13 @@
       Style="{StaticResource MaterialDesignFlatButton}" />
             <ComboBox
                 x:Name="ComboBoxTxt3"
-  materialDesign:HintAssist.Hint="OS">
+  materialDesign:HintAssist.Hint="User">
                 <ComboBoxItem
     Content="Friends" />
                 <ComboBoxItem
     Content="Add Friend" />
+                <ComboBoxItem
+    Content="Profile"   />
             </ComboBox>
         </StackPanel>
         <!--<DataGrid></DataGrid>-->

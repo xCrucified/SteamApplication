@@ -4,30 +4,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace data_access.Repositories
 {
     public interface IUoW
     {
-
         public IRepository<Country>? CountryRepo { get; }
-
         public IRepository<Game>? GameRepo { get; }
-
-        public IRepository<Groups>? GroupRepo { get; }
-
+        public IRepository<Groups> GroupRepo { get; }
         public IRepository<Platform>? PlatformRepo { get; }
-
         public IRepository<Position>? PosRepo { get; }
-
         public IRepository<Review>? ReviewRepo { get; }
-
         public IRepository<User>? UserRepo { get; }
         void Save();
     }
 
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IUoW, IDisposable
     {
         private static SteamDb context = new SteamDb();
 
@@ -46,11 +40,11 @@ namespace data_access.Repositories
             get
             {
 
-                if (this.CategoryRepo == null)
+                if (this.categoryRepo == null)
                 {
                     this.categoryRepo = new Repository<Category>(context);
                 }
-                return CategoryRepo;
+                return categoryRepo;
             }
         }
 
@@ -59,11 +53,11 @@ namespace data_access.Repositories
             get
             {
 
-                if (this.CompanyRepo == null)
+                if (this.companyRepo == null)
                 {
                     this.companyRepo = new Repository<Company>(context);
                 }
-                return CompanyRepo;
+                return companyRepo;
             }
         }
         public IRepository<Country> CountryRepo
@@ -71,11 +65,11 @@ namespace data_access.Repositories
             get
             {
 
-                if (this.CountryRepo == null)
+                if (this.countryRepo == null)
                 {
                     this.countryRepo = new Repository<Country>(context);
                 }
-                return CountryRepo;
+                return countryRepo;
             }
         }
 
@@ -84,11 +78,11 @@ namespace data_access.Repositories
             get
             {
 
-                if (this.GameRepo == null)
+                if (this.gameRepo == null)
                 {
                     this.gameRepo = new Repository<Game>(context);
                 }
-                return GameRepo;
+                return gameRepo;
             }
         }
         public IRepository<Platform> PlatformRepo
@@ -96,11 +90,11 @@ namespace data_access.Repositories
             get
             {
 
-                if (this.PlatformRepo == null)
+                if (this.platformRepo == null)
                 {
                     this.platformRepo = new Repository<Platform>(context);
                 }
-                return PlatformRepo;
+                return platformRepo;
             }
         }
 
@@ -108,36 +102,48 @@ namespace data_access.Repositories
         {
             get
             {
-                if (this.PosRepo == null)
+                if (this.posRepo == null)
                 {
                     this.posRepo = new Repository<Position>(context);
                 }
-                return PosRepo;
+                return posRepo;
             }
         }
         public IRepository<Review> ReviewRepo
         {
             get
             {
-                if (this.ReviewRepo == null)
+                if (this.reviewRepo == null)
                 {
                     this.reviewRepo = new Repository<Review>(context);
                 }
-                return ReviewRepo;
+                return reviewRepo;
             }
         }
+      
+        public IRepository<Groups> GroupRepo
+        {
+            get
+            {
+                if (this.groupRepo == null)
+                {
+                    this.groupRepo = new Repository<Groups>(context);
+                }
+                return groupRepo;
+            }
+        }
+
         public IRepository<User> UserRepo
         {
             get
             {
-                if (this.UserRepo == null)
+                if(this.userRepo == null)
                 {
                     this.userRepo = new Repository<User>(context);
                 }
-                return UserRepo;
+                return userRepo;
             }
         }
-
 
         public void Save()
         {

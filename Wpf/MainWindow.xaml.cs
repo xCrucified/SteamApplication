@@ -20,6 +20,7 @@ namespace Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        ReviewWindow rw = new ReviewWindow();
         public MainWindow()
         {
             InitializeComponent();
@@ -41,9 +42,10 @@ namespace Wpf
             ComboBoxTxt3.Text = string.Empty;
         }
 
-        private void ComboBox_Clicked(object sender, MouseButtonEventArgs e)
+        private void ReviewsList_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("spitgw");
+
+            rw.Show();
         }
     }
 }

@@ -13,7 +13,10 @@ namespace data_access.Entities
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public string Password { get; set; }
-        public DateTime Date { get; set; } //Date of registration
+        /// <summary>
+        /// Date of registration
+        /// </summary>
+        public DateTime Date { get; set; }
         public bool IsVerifiedAccount { get; set; } = false;
         public int PositionId { get; set; }
         public int GroupId { get; set; }
