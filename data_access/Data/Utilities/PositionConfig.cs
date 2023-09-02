@@ -14,7 +14,6 @@ namespace SteamApplication.Data.Utilities
         public void Configure(EntityTypeBuilder<Position> builder)
         {
             builder.HasKey(x => x.Id);
-
         }
     }
 }
