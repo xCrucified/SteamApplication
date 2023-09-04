@@ -1,5 +1,4 @@
-﻿using data_access.Entities;
-using data_access.Repositories;
+﻿using data_access.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,32 +12,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using data_access;
-using Microsoft.EntityFrameworkCore;
 
-namespace Wpf
+namespace Wpf.Windows
 {
     /// <summary>
-    /// Interaction logic for ReviewWindow.xaml
+    /// Interaction logic for GroupsWindow.xaml
     /// </summary>
-    public partial class ReviewWindow : Window
+    public partial class GroupsWindow : Window
     {
         IUoW uoW = new UnitOfWork();
-        public ReviewWindow()
+        public GroupsWindow()
         {
             InitializeComponent();
 
-            DataGrid_Review.ItemsSource = uoW.UserRepo.Get(includeProperties: "Country").Select(x => new
+            Groups_DataGrid.ItemsSource = uoW.GroupRepo.Get().Select(x => new
             {
                 x.Id,
-                x.NickName,
-                x.Date,
-                CountryName = x.Country.Name,
-                PositionName = x.PositionId
+                x.Name,
             });
 
             uoW.Save();
-
         }
     }
 }

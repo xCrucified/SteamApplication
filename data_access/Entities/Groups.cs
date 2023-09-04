@@ -12,7 +12,7 @@ namespace data_access.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public int? Followers { get; set; }
-        public short Rate { get; set; }
+        public int Rate { get; set; }
 
         public ICollection<User> Users { get; set; }
     }

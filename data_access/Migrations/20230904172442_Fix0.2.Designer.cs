@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SteamApplication.DatabaseContext;
 
@@ -11,9 +12,10 @@ using SteamApplication.DatabaseContext;
 namespace SteamApplication.Migrations
 {
     [DbContext(typeof(SteamDb))]
-    partial class SteamDbModelSnapshot : ModelSnapshot
+    [Migration("20230904172442_Fix0.2")]
+    partial class Fix02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -354,12 +356,10 @@ namespace SteamApplication.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CategoryId")
-                        .IsRequired()
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CompanyId")
-                        .IsRequired()
+                    b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
                     b.Property<decimal?>("Cost")
@@ -372,12 +372,11 @@ namespace SteamApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PlatformId")
-                        .IsRequired()
+                    b.Property<int>("PlatformId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Rate")
-                        .HasColumnType("int");
+                    b.Property<short?>("Rate")
+                        .HasColumnType("smallint");
 
                     b.HasKey("Id");
 
@@ -399,7 +398,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 1",
                             Name = "Game 1",
                             PlatformId = 1,
-                            Rate = 4
+                            Rate = (short)4
                         },
                         new
                         {
@@ -410,7 +409,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 2",
                             Name = "Game 2",
                             PlatformId = 2,
-                            Rate = 3
+                            Rate = (short)3
                         },
                         new
                         {
@@ -421,7 +420,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 3",
                             Name = "Game 3",
                             PlatformId = 3,
-                            Rate = 5
+                            Rate = (short)5
                         },
                         new
                         {
@@ -432,7 +431,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 4",
                             Name = "Game 4",
                             PlatformId = 4,
-                            Rate = 4
+                            Rate = (short)4
                         },
                         new
                         {
@@ -443,7 +442,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 5",
                             Name = "Game 5",
                             PlatformId = 5,
-                            Rate = 3
+                            Rate = (short)3
                         },
                         new
                         {
@@ -454,7 +453,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 6",
                             Name = "Game 6",
                             PlatformId = 6,
-                            Rate = 4
+                            Rate = (short)4
                         },
                         new
                         {
@@ -465,7 +464,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 7",
                             Name = "Game 7",
                             PlatformId = 7,
-                            Rate = 5
+                            Rate = (short)5
                         },
                         new
                         {
@@ -476,7 +475,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 8",
                             Name = "Game 8",
                             PlatformId = 8,
-                            Rate = 3
+                            Rate = (short)3
                         },
                         new
                         {
@@ -487,7 +486,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 9",
                             Name = "Game 9",
                             PlatformId = 9,
-                            Rate = 4
+                            Rate = (short)4
                         },
                         new
                         {
@@ -498,7 +497,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 10",
                             Name = "Game 10",
                             PlatformId = 10,
-                            Rate = 5
+                            Rate = (short)5
                         },
                         new
                         {
@@ -509,7 +508,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 11",
                             Name = "Game 11",
                             PlatformId = 11,
-                            Rate = 3
+                            Rate = (short)3
                         },
                         new
                         {
@@ -520,7 +519,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 12",
                             Name = "Game 12",
                             PlatformId = 12,
-                            Rate = 4
+                            Rate = (short)4
                         },
                         new
                         {
@@ -531,7 +530,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 13",
                             Name = "Game 13",
                             PlatformId = 13,
-                            Rate = 5
+                            Rate = (short)5
                         },
                         new
                         {
@@ -542,7 +541,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 14",
                             Name = "Game 14",
                             PlatformId = 14,
-                            Rate = 3
+                            Rate = (short)3
                         },
                         new
                         {
@@ -553,7 +552,7 @@ namespace SteamApplication.Migrations
                             Description = "Description 15",
                             Name = "Game 15",
                             PlatformId = 15,
-                            Rate = 4
+                            Rate = (short)4
                         });
                 });
 
@@ -1079,7 +1078,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 1,
                             CountryId = 1,
-                            Date = new DateTime(2023, 8, 5, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5237),
+                            Date = new DateTime(2023, 8, 5, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8269),
                             Email = "user1@example.com",
                             GroupId = 1,
                             IsVerifiedAccount = true,
@@ -1092,7 +1091,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 2,
                             CountryId = 2,
-                            Date = new DateTime(2023, 7, 21, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5274),
+                            Date = new DateTime(2023, 7, 21, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8314),
                             Email = "user2@example.com",
                             GroupId = 2,
                             IsVerifiedAccount = false,
@@ -1105,7 +1104,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 3,
                             CountryId = 3,
-                            Date = new DateTime(2023, 7, 6, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5279),
+                            Date = new DateTime(2023, 7, 6, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8319),
                             Email = "user3@example.com",
                             GroupId = 3,
                             IsVerifiedAccount = true,
@@ -1118,7 +1117,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 4,
                             CountryId = 4,
-                            Date = new DateTime(2023, 6, 21, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5282),
+                            Date = new DateTime(2023, 6, 21, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8322),
                             Email = "user4@example.com",
                             GroupId = 4,
                             IsVerifiedAccount = false,
@@ -1131,7 +1130,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 5,
                             CountryId = 5,
-                            Date = new DateTime(2023, 6, 6, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5286),
+                            Date = new DateTime(2023, 6, 6, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8325),
                             Email = "user5@example.com",
                             GroupId = 5,
                             IsVerifiedAccount = true,
@@ -1144,7 +1143,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 6,
                             CountryId = 6,
-                            Date = new DateTime(2023, 5, 22, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5288),
+                            Date = new DateTime(2023, 5, 22, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8328),
                             Email = "user6@example.com",
                             GroupId = 6,
                             IsVerifiedAccount = true,
@@ -1157,7 +1156,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 7,
                             CountryId = 7,
-                            Date = new DateTime(2023, 5, 7, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5292),
+                            Date = new DateTime(2023, 5, 7, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8332),
                             Email = "user7@example.com",
                             GroupId = 7,
                             IsVerifiedAccount = false,
@@ -1170,7 +1169,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 8,
                             CountryId = 8,
-                            Date = new DateTime(2023, 4, 22, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5295),
+                            Date = new DateTime(2023, 4, 22, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8335),
                             Email = "user8@example.com",
                             GroupId = 8,
                             IsVerifiedAccount = true,
@@ -1183,7 +1182,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 9,
                             CountryId = 9,
-                            Date = new DateTime(2023, 4, 7, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5298),
+                            Date = new DateTime(2023, 4, 7, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8340),
                             Email = "user9@example.com",
                             GroupId = 9,
                             IsVerifiedAccount = false,
@@ -1196,7 +1195,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 10,
                             CountryId = 10,
-                            Date = new DateTime(2023, 3, 23, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5301),
+                            Date = new DateTime(2023, 3, 23, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8343),
                             Email = "user10@example.com",
                             GroupId = 10,
                             IsVerifiedAccount = true,
@@ -1209,7 +1208,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 11,
                             CountryId = 11,
-                            Date = new DateTime(2023, 3, 8, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5304),
+                            Date = new DateTime(2023, 3, 8, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8347),
                             Email = "user11@example.com",
                             GroupId = 11,
                             IsVerifiedAccount = false,
@@ -1222,7 +1221,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 12,
                             CountryId = 12,
-                            Date = new DateTime(2023, 2, 21, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5307),
+                            Date = new DateTime(2023, 2, 21, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8350),
                             Email = "user12@example.com",
                             GroupId = 12,
                             IsVerifiedAccount = true,
@@ -1235,7 +1234,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 13,
                             CountryId = 13,
-                            Date = new DateTime(2023, 2, 6, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5311),
+                            Date = new DateTime(2023, 2, 6, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8354),
                             Email = "user13@example.com",
                             GroupId = 13,
                             IsVerifiedAccount = true,
@@ -1248,7 +1247,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 14,
                             CountryId = 14,
-                            Date = new DateTime(2023, 1, 22, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5313),
+                            Date = new DateTime(2023, 1, 22, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8357),
                             Email = "user14@example.com",
                             GroupId = 14,
                             IsVerifiedAccount = false,
@@ -1261,7 +1260,7 @@ namespace SteamApplication.Migrations
                         {
                             Id = 15,
                             CountryId = 15,
-                            Date = new DateTime(2023, 1, 7, 20, 34, 9, 639, DateTimeKind.Local).AddTicks(5316),
+                            Date = new DateTime(2023, 1, 7, 20, 24, 41, 746, DateTimeKind.Local).AddTicks(8360),
                             Email = "user15@example.com",
                             GroupId = 15,
                             IsVerifiedAccount = true,

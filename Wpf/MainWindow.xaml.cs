@@ -24,6 +24,8 @@ namespace Wpf
         ReviewWindow rw = new ReviewWindow();
         LibraryWindow lw = new LibraryWindow();
         GameListWindow gw = new GameListWindow();
+        GroupsWindow gpw = new GroupsWindow();
+        AddGroupWindow agw = new AddGroupWindow();
         public MainWindow()
         {
             InitializeComponent();
@@ -58,6 +60,16 @@ namespace Wpf
         private void GameList_Click(object sender, MouseButtonEventArgs e)
         {
             gw.Show();
+        }
+
+        private void Groups_Click(object sender, MouseButtonEventArgs e)
+        {
+            gpw.Show();
+        }
+
+        private void AddGroup_Click(object sender, MouseButtonEventArgs e)
+        {
+            agw.Show();
         }
     }
 }

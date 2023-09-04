@@ -8,7 +8,7 @@
         Title="GameListWindow" Height="450" Width="400">
     <Border BorderThickness="4" Background="DarkGray">
         
-    <Grid Background="Gray">
+    <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -21,19 +21,21 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
         <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center">Name:</Label>
         <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="1">Description:</Label>
         <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="2">Cost:</Label>
         <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="3">Company:</Label>
         <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="4">Category:</Label>
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" x:Name="Name_txtBlox" Background="Wheat"/>
+            <Label FontWeight="UltraBlack" FontSize="20" VerticalAlignment="Center" Grid.Row="5">Platform:</Label>
+            <TextBox Grid.Column="1" Grid.ColumnSpan="2" x:Name="Name_txtBlox" Background="Wheat"/>
         <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Desc_txtBlox" Background="Wheat"/>
         <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Cost_txtBlox" Background="Wheat"/>
         <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Comp_txtBlox" Background="Wheat"/>
         <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Cat_txtBlox" Background="Wheat"/>
-
-            <Button Background="Wheat" Grid.Row="5" Grid.ColumnSpan="3" FontSize="19" FontWeight="Black" Click="Btn_ApproveClick">Click if u complate</Button>
+            <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Planf_txtBlox" Background="Wheat"/>
+            <Button Background="Wheat" Grid.Row="6" Grid.ColumnSpan="3" FontSize="19" FontWeight="Black" Click="Btn_ApproveClick">Click if u complate</Button>
     </Grid>
     </Border>
 </Window>

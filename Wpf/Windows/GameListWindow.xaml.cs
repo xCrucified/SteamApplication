@@ -18,6 +18,7 @@ using System.Data;
 using data_access.Entities;
 using MaterialDesignThemes.Wpf;
 using System.Runtime.ConstrainedExecution;
+using SteamApplication.DatabaseContext;
 
 namespace Wpf.Windows
 {
@@ -26,32 +27,43 @@ namespace Wpf.Windows
     /// </summary>
     public partial class GameListWindow : Window
     {
-        string connStr = null;
         public GameListWindow()
         {
             InitializeComponent();
-            
         }
 
         private void Btn_ApproveClick(object sender, RoutedEventArgs e)
         {
-            Create();
-        }
-        public void Create()
-        {
-            using (SqlConnection conn = new SqlConnection(connStr))
+            Random random = new Random();
+
+            string nameEntity = Name_txtBlox.Text;
+            string descEntity = Desc_txtBlox.Text;
+            int costEntity = int.Parse(Cost_txtBlox.Text);
+            int rateEntity = random.Next(1, 5);
+            int catEntity = int.Parse(Cat_txtBlox.Text);
+            int compEntity = int.Parse(Comp_txtBlox.Text);
+            int platEntity = int.Parse(Planf_txtBlox.Text);
+
+            var entity = new Game
             {
-                conn.Open();
+                Name = nameEntity,
+                Description = descEntity,
+                Cost = costEntity,
+                Rate = rateEntity,
+                CategoryId = catEntity,
+                CompanyId= compEntity,
+                PlatformId = platEntity,
+                
+            };
 
-                var cmdText = "INSERT INTO Game (Name, Description, Cost) VALUES(@Name, @Description, @Cost)";
-                SqlCommand command = new SqlCommand(cmdText, conn);
+            using (var cx = new SteamDb())
+            {
+                cx.Game.Add(entity);
+                cx.SaveChanges();
 
-                command.Parameters.Add("@Name", SqlDbType.NVarChar);
-                command.Parameters.Add("@Description", SqlDbType.NVarChar);
-                command.Parameters.Add("@Cost", SqlDbType.Decimal);
-
-               
+                MessageBox.Show("Apply");
             }
         }
+        
     }
 }

@@ -12,10 +12,10 @@ namespace data_access.Entities
         public string Name { get; set; }
         public string? Description { get; set; }
         public decimal? Cost { get; set; }
-        public int CompanyId { get; set; }
-        public int CategoryId { get; set; }
-        public int PlatformId { get; set; }
-        public short? Rate { get; set; }
+        public int? CompanyId { get; set; }
+        public int? CategoryId { get; set; }
+        public int? PlatformId { get; set; }
+        public int? Rate { get; set; }
 
         public Platform Platform { get; set; }
         public Category Category { get; set; }
