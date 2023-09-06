@@ -12,6 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Ardalis.Specification;
+using SteamApplication.DatabaseContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace Wpf.Windows
 {
@@ -21,18 +24,22 @@ namespace Wpf.Windows
     public partial class LibraryWindow : Window
     {
         IUoW uoW = new UnitOfWork();
+        SteamDb db = new SteamDb();
+
         public LibraryWindow()
         {
             InitializeComponent();
 
-            Library_DataGrid.ItemsSource = uoW.GameRepo.Get(includeProperties: "Category").Select(x => new
+            //var zxc = db.Game.Include(x => x.Company);
+
+            Library_DataGrid.ItemsSource = uoW.GameRepo.Get(includeProperties: "Company, Category").Select(x => new
             {
                 x.Id,
                 x.Name,
                 x.Description,
                 x.Rate,
-                CategoryName = x.Category.Name,
-                //CompanyName = x.Company.Name,
+                CompanyName = x.Company.Name,
+                CategoryName = x.Category.Name
             });
 
             uoW.Save();

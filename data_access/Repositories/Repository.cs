@@ -44,9 +44,9 @@ namespace data_access.Repositories
             {
                 return orderBy(query).ToList();
             }
-            else
+            else 
             {
-                return query.ToList();
+                 return query.ToList();
             }
         }
 

@@ -18,11 +18,13 @@ namespace data_access.Repositories
         public IRepository<Position>? PosRepo { get; }
         public IRepository<Review>? ReviewRepo { get; }
         public IRepository<User>? UserRepo { get; }
+
         void Save();
     }
 
     public class UnitOfWork : IUoW, IDisposable
     {
+        
         private static SteamDb context = new SteamDb();
 
         private IRepository<Category>? categoryRepo = null;
