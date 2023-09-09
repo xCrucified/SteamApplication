@@ -28,13 +28,13 @@ namespace Wpf
         {
             InitializeComponent();
 
-            DataGrid_Review.ItemsSource = uoW.UserRepo.Get(includeProperties: "Country").Select(x => new
+            DataGrid_Review.ItemsSource = uoW.UserRepo.Get(includeProperties: "Country,Position").Select(x => new
             {
                 x.Id,
                 x.NickName,
                 x.Date,
                 CountryName = x.Country.Name,
-                PositionName = x.PositionId
+                PositionName = x.Position.Name
             });
 
             uoW.Save();

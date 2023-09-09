@@ -32,7 +32,7 @@ namespace Wpf.Windows
 
             //var zxc = db.Game.Include(x => x.Company);
 
-            Library_DataGrid.ItemsSource = uoW.GameRepo.Get(includeProperties: "Company, Category").Select(x => new
+            Library_DataGrid.ItemsSource = uoW.GameRepo.Get(includeProperties: "Company,Category").Select(x => new
             {
                 x.Id,
                 x.Name,
