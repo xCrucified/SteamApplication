@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.ViewModel;
 using Wpf.Windows;
 
 namespace Wpf
@@ -21,6 +22,8 @@ namespace Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameViewModel viewModel = new GameViewModel();
+
         ReviewWindow rw = new ReviewWindow();
         LibraryWindow lw = new LibraryWindow();
         GameListWindow gw = new GameListWindow();
@@ -29,6 +32,7 @@ namespace Wpf
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = viewModel;
         }
 
         
@@ -70,6 +74,11 @@ namespace Wpf
         private void AddGroup_Click(object sender, MouseButtonEventArgs e)
         {
             agw.Show();
+        }
+
+        private void Btn_RefreshClick(object sender, RoutedEventArgs e)
+        {
+            gw.Content = viewModel;
         }
     }
 }

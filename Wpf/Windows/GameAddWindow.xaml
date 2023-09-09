@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf.Windows"
         mc:Ignorable="d"
-        Title="GameListWindow" Height="450" Width="400">
+        Title="GameAddWindow" Height="450" Width="400">
     <Border BorderThickness="4" Background="DarkGray">
         
     <Grid Background="LightGray">

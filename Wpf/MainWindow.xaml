@@ -17,8 +17,9 @@
         WindowStartupLocation="CenterOwner">
     
     <Grid Background="LightGray">
+            <Button Grid.Column="1" VerticalAlignment="Top" Click="Btn_RefreshClick">Refresh</Button>
         <StackPanel Grid.ColumnSpan="2" Margin="10">
-            <CheckBox
+            <CheckBox HorizontalAlignment="Left"
       x:Name="OutlinedComboBoxEnabledCheckBox"
       
       Content="Enabled"

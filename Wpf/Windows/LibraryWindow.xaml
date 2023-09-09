@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Wpf.Windows"
         mc:Ignorable="d"
         Title="LibraryWindow" Height="450" Width="800">
+    
+
     <Grid>
-        <DataGrid x:Name="Library_DataGrid"></DataGrid>
+        <DataGrid x:Name="Library_DataGrid" ItemsSource="{Binding gameList}"></DataGrid>
     </Grid>
+
 </Window>

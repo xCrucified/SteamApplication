@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Ardalis.Specification;
 using SteamApplication.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
+using Wpf.ViewModel;
 
 namespace Wpf.Windows
 {
@@ -25,13 +26,11 @@ namespace Wpf.Windows
     {
         IUoW uoW = new UnitOfWork();
         SteamDb db = new SteamDb();
-
+        GameViewModel gameViewModel = new GameViewModel();
         public LibraryWindow()
         {
-            InitializeComponent();
-
-            //var zxc = db.Game.Include(x => x.Company);
-
+            InitializeComponent();;
+            this.DataContext = gameViewModel;
             Library_DataGrid.ItemsSource = uoW.GameRepo.Get(includeProperties: "Company,Category").Select(x => new
             {
                 x.Id,
